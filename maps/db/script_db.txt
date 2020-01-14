@@ -1,0 +1,29 @@
+--DB POSTGRESQL--
+
+CREATE DATABASE maps
+
+CREATE TABLE public.mapscelula
+(
+  id integer NOT NULL,
+  nrocelula character varying(20) NOT NULL,
+  ci character varying(20) NOT NULL,
+  nombre character varying(100) NOT NULL,
+  direccion character varying(150) NOT NULL,
+  dia character varying(20) NOT NULL,
+  hora time(6) without time zone NOT NULL,
+  telefono numeric(12,0) NOT NULL,
+  lat numeric(10,6) DEFAULT NULL::numeric,
+  lng numeric(10,6) DEFAULT NULL::numeric
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.mapscelula
+  OWNER TO postgres;
+
+INSERT INTO public.mapscelula(
+            id, nrocelula, ci, nombre, direccion, dia, hora, telefono, lat, 
+            lng)
+    VALUES (1, 1235, 456845, 'MAURICIO JAVIER GARCETE SALAS', 'OLEGARIO ANDRADE casi SORIANO GONZALEZ', 'SABADO', '15:00', 0845564865 ,-25.303802, -57.555640),
+(2, 1254, 45654845, 'JAVIER SALAS', 'ESPAÑA 2055 casi LUIS MORALES', 'DOMINGO', '17:00', 0441565165 ,-25.288690, -57.586037),
+(3, 14554, 433355, 'LUCAS MARCOS ZARZA', 'DEL LEON  casi VIA FERREA', 'DOMINGO', '19:00', 051681654 ,-25.303360, -57.554803);
